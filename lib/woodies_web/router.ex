@@ -5,8 +5,10 @@ defmodule WoodiesWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", WoodiesWeb do
+  # Newsletter
+  scope "/", WoodiesWeb do
     pipe_through :api
+    post "/newsletter/subscribe", NewsletterController, :subscribe
   end
 
   # Enables LiveDashboard only for development

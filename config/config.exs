@@ -10,6 +10,10 @@ use Mix.Config
 config :woodies,
   ecto_repos: [Woodies.Repo]
 
+config :woodies, Woodies.Repo,
+  migration_primary_key: [type: :binary_id],
+  migration_foreign_key: [type: :binary_id]
+
 # Configures the endpoint
 config :woodies, WoodiesWeb.Endpoint,
   url: [host: "localhost"],
