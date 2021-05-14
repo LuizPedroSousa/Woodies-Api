@@ -1,5 +1,5 @@
-defmodule WoodiesWeb.NewsletterView do
-  alias Woodies.Newsletter
+defmodule WoodiesWeb.SubscriberView do
+  alias Woodies.Subscriber
 
   def render("index.json", %{subscribers: subscribers}) do
     %{
@@ -8,16 +8,16 @@ defmodule WoodiesWeb.NewsletterView do
     }
   end
 
-  def render("subscribe.json", %{
-        newsletter: %Newsletter{
+  def render("create.json", %{
+        subscriber: %Subscriber{
           id: id,
           email: email,
           inserted_at: inserted_at
         }
       }) do
     %{
-      ok: "Subscribe on newsletter with successfully",
-      newsletter: %{
+      ok: "Subscribed on newsletter with successfully",
+      subscriber: %{
         id: id,
         email: email,
         inserted_at: inserted_at
@@ -27,7 +27,7 @@ defmodule WoodiesWeb.NewsletterView do
 
   defp format_subscribers(subscribers) do
     subscribers
-    |> Enum.map(fn %Newsletter{id: id, email: email, inserted_at: inserted_at} ->
+    |> Enum.map(fn %Subscriber{id: id, email: email, inserted_at: inserted_at} ->
       %{id: id, email: email, inserted_at: inserted_at}
     end)
   end

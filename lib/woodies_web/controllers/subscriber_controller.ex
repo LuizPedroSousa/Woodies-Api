@@ -1,6 +1,6 @@
-defmodule WoodiesWeb.NewsletterController do
+defmodule WoodiesWeb.SubscriberController do
   use WoodiesWeb, :controller
-  alias Woodies.{Newsletter}
+  alias Woodies.{Subscriber}
   action_fallback WoodiesWeb.FallbackController
 
   def index(conn, _params) do
@@ -11,11 +11,11 @@ defmodule WoodiesWeb.NewsletterController do
     end
   end
 
-  def subscribe(conn, params) do
-    with {:ok, %Newsletter{} = newsletter} <- Woodies.subscribe_newsletter(params) do
+  def create(conn, params) do
+    with {:ok, %Subscriber{} = subscriber} <- Woodies.subscribe_on_newsletter(params) do
       conn
       |> put_status(:created)
-      |> render("subscribe.json", newsletter: newsletter)
+      |> render("create.json", subscriber: subscriber)
     end
   end
 end

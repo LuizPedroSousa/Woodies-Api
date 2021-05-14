@@ -1,10 +1,10 @@
-defmodule Woodies.Newsletter do
+defmodule Woodies.Subscriber do
   use Ecto.Schema
   import Ecto.Changeset
   @primary_key {:id, :binary_id, autogenerate: true}
   @required_params [:email]
 
-  schema "newsletter" do
+  schema "newsletter_subscribers" do
     field :email, :string
 
     timestamps()

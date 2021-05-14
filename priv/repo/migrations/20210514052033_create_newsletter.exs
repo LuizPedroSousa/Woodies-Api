@@ -1,13 +1,13 @@
-defmodule Woodies.Repo.Migrations.CreateNewsletter do
+defmodule Woodies.Repo.Migrations.CreateNewsletterSubscriber do
   use Ecto.Migration
 
   def change do
-    create table :newsletter do
+    create table :newsletter_subscribers do
       add :email, :string
 
       timestamps()
     end
 
-    create unique_index(:newsletter, [:email])
+    create unique_index(:newsletter_subscribers, [:email])
   end
 end
