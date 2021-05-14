@@ -8,6 +8,7 @@ defmodule WoodiesWeb.Router do
   # Newsletter
   scope "/", WoodiesWeb do
     pipe_through :api
+    get "/newsletter", NewsletterController, :index
     post "/newsletter/subscribe", NewsletterController, :subscribe
   end
 

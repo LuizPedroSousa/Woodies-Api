@@ -11,6 +11,14 @@ defmodule WoodiesWeb.ErrorView do
     %{errors: translate_errors(changeset)}
   end
 
+  def render("400.json", %{result: error}) do
+    %{
+      error: %{
+        details: error
+      }
+    }
+  end
+
   defp translate_errors(changeset) do
     changeset
     |> traverse_errors(fn {msg, opts} ->
