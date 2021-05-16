@@ -12,6 +12,12 @@ defmodule WoodiesWeb.Router do
     post "/newsletter/subscribe", SubscriberController, :create
   end
 
+  # User
+  scope "/", WoodiesWeb do
+    pipe_through :api
+    post "/user/create", UserController, :create
+  end
+
   # Enables LiveDashboard only for development
   #
   # If you want to use the LiveDashboard in production, you should put

@@ -1,5 +1,6 @@
 defmodule WoodiesWeb.SubscriberView do
   alias Woodies.Subscriber
+  use WoodiesWeb, :view
 
   def render("index.json", %{subscribers: subscribers}) do
     %{
